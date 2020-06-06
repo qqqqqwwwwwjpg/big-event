@@ -30,11 +30,11 @@
         <!-- 标题区 -->
         <div class="title"></div>
         <!-- 表单区 -->
-        <form>
+        <form class="layui-form">
             <!-- 输入框 -->
             <div class="layui-form-item">
                 <i class="layui-icon layui-icon-username"></i>
-                <input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+                <input type="text" name="username" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
             </div>
             <!-- 密码框 -->
             <div class="layui-form-item">
@@ -58,7 +58,7 @@
         <!-- 标题区 -->
         <div class="title"></div>
         <!-- 表单区 -->
-        <form>
+        <form class="layui-form">
             <!-- 输入框 -->
             <div class="layui-form-item">
                 <i class="layui-icon layui-icon-username"></i>
@@ -69,17 +69,17 @@
             <div class="layui-form-item">
                 <i class="layui-icon layui-icon-password"></i>
 
-                <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                <input type="password" name="password" required lay-verify="required|len" placeholder="请输入密码" autocomplete="off" class="layui-input pass">
             </div>
             <!-- 密码框2 -->
             <div class="layui-form-item">
                 <i class="layui-icon layui-icon-password"></i>
 
-                <input type="password" required lay-verify="required" placeholder="再次输入密码" autocomplete="off" class="layui-input">
+                <input type="password" required lay-verify="required|same" placeholder="再次输入密码" autocomplete="off" class="layui-input">
             </div>
             <!-- 按钮 -->
             <div class="layui-form-item">
-                <button class="layui-btn layui-bg-blue layui-btn-fluid " lay-submit lay-filter="formDemo">注册</button>
+                <button class="layui-btn layui-bg-blue layui-btn-fluid " lay-submit lay-submit lay-filter="formDemo">注册</button>
             </div>
             <!-- a超链接 -->
             <div class="layui-form-item">
