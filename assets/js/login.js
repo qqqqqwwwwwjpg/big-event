@@ -19,7 +19,7 @@ $(function() {
         // 2.6 如果成功了 跳转到登录页面 当前页面隐藏 
     }
 
-    // ----------------------------------点击 注册/登录 获取文本 发送ajax 验证操作------------------------
+    // ----------------------------------点击 注册 获取文本 发送ajax 验证操作------------------------
 
     // 监听注册表单的提交事件
     $('#register form').on('submit', function(e) {
@@ -41,9 +41,9 @@ $(function() {
                 // 无论成功失败都要提示
                 // alert(backData.message);
                 // 如果成功跳转到登录页面
+                //提示层
+                layer.msg(backData.message);
                 if (backData.status === 0) {
-                    //提示层
-                    layer.msg(backData.message);
                     $('#login').show().next().hide()
                 }
 
@@ -94,8 +94,8 @@ $(function() {
             success: function(backData) {
                 console.log(backData);
                 //提示层
+                layer.msg(backData.message);
                 if (backData.status === 0) {
-                    layer.msg(backData.message);
                     // alert("111")
                     localStorage.setItem('token', backData.token);
                     location.href = "./index.html"
