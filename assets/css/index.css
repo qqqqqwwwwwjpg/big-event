@@ -1,0 +1,27 @@
+.iconfont {
+    font-size: 18px;
+    padding-right: 5px;
+}
+
+.iconfont-left {
+    padding-left: 15px;
+}
+
+.userinfo {
+    padding: 10px 10px 10px 34px;
+    font-size: 12px;
+}
+
+.text-avatar {
+    width: 30px;
+    height: 30px;
+    background-color: #009688;
+    display: inline-block;
+    border-radius: 50%;
+    line-height: 30px;
+    text-align: center;
+    font-size: 18px;
+    margin-right: 5px;
+    display: none;
+    /*这里先让文字头像隐藏*/
+}

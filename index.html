@@ -4,11 +4,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>首页</title>
+    <!-- 引入框架 -->
+    <link rel="stylesheet" href="/assets/lib/layui/css/layui.css">
+    <script src="/assets/lib/jquery.js"></script>
+
+    <!-- 引入自己的 -->
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <script src="/assets/js/index.js"></script>
 </head>
 
-<body>
+<body class="layui-layout-body">
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo"><img src="/assets/images/logo.png" alt=""></div>
+            <!-- 头部区域（可配合layui已有的水平导航） -->
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <span class="text-avatar">Q</span>
+                        <img src="http://t.cn/RCzsdCq" class="layui-nav-img"> 个人中心
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">基本资料</a></dd>
+                        <dd><a href="">安全设置</a></dd>
+                        <dd><a href="">密码重置</a></dd>
 
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;" id='logout'>
+                        <span class='iconfont'><i class="layui-icon layui-icon-logout"></i></span> 退出
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test" lay-shrink="all">
+                    <div class="userinfo" href="javascript:;">
+                        <span class="text-avatar">Q</span>
+                        <img src="http://t.cn/RCzsdCq" class="layui-nav-img"> 欢迎 &nbsp; &nbsp;<span class="myname">琦琦</span>
+                    </div>
+                    <li class="layui-nav-item"><a href=""><span class='iconfont'> 
+                        <i class="layui-icon layui-icon-home"></i> </span>  首页</a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a class="" href="javascript:;"> <span class='iconfont'> 
+                            <i class="layui-icon layui-icon-form"></i> </span> 文章管理</a>
+                        <dl class="layui-nav-child">
+                            <dd>
+                                <a href="javascript:;"> <span class='iconfont iconfont-left'>
+                                     <i class="layui-icon layui-icon-app"></i></span> 文章类别</a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;"> <span class='iconfont iconfont-left'>
+                                     <i class="layui-icon layui-icon-app"></i></span> 文章列表</a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;"> <span class='iconfont iconfont-left'>
+                                     <i class="layui-icon layui-icon-app"></i> </span> 发表文章</a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;"> <span class='iconfont'>
+                            <i class="layui-icon layui-icon-user"></i> </span> 个人中心</a>
+                        <dl class="layui-nav-child">
+                            <dd>
+                                <a href="javascript:;"> <span class='iconfont iconfont-left'>
+                                    <i class="layui-icon layui-icon-app"></i></span> 基本资料</a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;"> <span class='iconfont iconfont-left'>
+                                    <i class="layui-icon layui-icon-app"></i></span> 更换头像</a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;"> <span class='iconfont iconfont-left'>
+                                    <i class="layui-icon layui-icon-app"></i></span> 密码重置</a>
+                            </dd>
+                        </dl>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <div style="padding: 15px;">内容主体区域</div>
+        </div>
+
+        <div class="layui-footer">
+            <!-- 底部固定区域 -->
+            © layui.com - 底部固定区域
+        </div>
+    </div>
+    <script src="/assets/lib/layui/layui.all.js"></script>
+    <script>
+        //JavaScript代码区域
+        layui.use('element', function() {
+            var element = layui.element;
+
+        });
+    </script>
 </body>
 
 </html>
