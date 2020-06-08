@@ -99,6 +99,10 @@ $(function() {
                     // alert("111")
                     localStorage.setItem('token', backData.token);
                     location.href = "./index.html"
+                        // if (localStorage.getItem('token') !== null) {
+                        //     location.href = "./index.html"
+
+                    // }
                 }
             }
         });

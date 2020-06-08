@@ -1,3 +1,13 @@
+<script>
+    // //  控制用户必须登录才能访问
+    if (localStorage.getItem('token') === null) {
+        location.href = '/login.html'
+            // console.log('111');
+    }
+</script>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +22,7 @@
     <!-- 引入自己的 -->
     <link rel="stylesheet" href="/assets/css/index.css">
     <script src="/assets/js/index.js"></script>
+
 </head>
 
 <body class="layui-layout-body">
@@ -103,6 +114,7 @@
             © layui.com - 底部固定区域
         </div>
     </div>
+
     <script src="/assets/lib/layui/layui.all.js"></script>
     <script>
         //JavaScript代码区域
