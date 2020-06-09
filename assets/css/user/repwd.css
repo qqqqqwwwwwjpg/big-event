@@ -1,0 +1,11 @@
+.layui-card {
+    margin: 20px;
+}
+
+body {
+    background-color: #f3f3f3;
+}
+
+.layui-form-item {
+    width: 500px;
+}

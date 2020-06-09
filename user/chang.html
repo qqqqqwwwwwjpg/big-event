@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- layui css -->
+    <link rel="stylesheet" href="/assets/lib/layui/css/layui.css">
+    <!-- cropper css -->
+    <link rel="stylesheet" href="/assets/lib/cropper/cropper.css">
+    <!-- 自己的 css -->
+    <link rel="stylesheet" href="/assets/css/user/chang.css">
+
+    <!-- jq  -->
+    <script src="/assets/lib/jquery.js"></script>
+    <!-- layui.all.js -->
+    <script src="/assets/lib/layui/layui.all.js"></script>
+    <!-- Cropper.js -->
+    <script src="/assets/lib/cropper/Cropper.js"></script>
+    <!-- jquery-cropper.js -->
+    <script src="/assets/lib/cropper/jquery-cropper.js"></script>
+
+    <!-- 自己的 js -->
+    <script src="/assets/js/user/chang.js"></script>
+</head>
+
+<body>
+    <!-- 卡片区域 -->
+    <div class="layui-card">
+        <div class="layui-card-header">更换头像</div>
+        <div class="layui-card-body">
+            <div class="outer-box">
+                <!-- 裁剪区域 -->
+                <!-- Wrap the image or canvas element with a block element (container) -->
+                <div class="cropper-box">
+                    <img id="image" src="../../assets/images/sample.jpg" />
+                </div>
+
+                <!-- 预览区域 -->
+                <div class="preview-box">
+                    <div class="img-preview w100"></div>
+                    <p>100 x 100</p>
+                    <div class="img-preview w50"></div>
+                    <p>50 x 50</p>
+                </div>
+            </div>
+            <!-- 底部按钮区域 -->
+            <div class="btns">
+                <input type="file" id='file'>
+                <button class="layui-btn" id="upload" name>上传</button>
+                <button class="layui-btn layui-btn-danger" id="btnCreateAvatar">确定</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 文件选择框 -->
+    <!-- 通过 accept 属性控制选择的文件类型 -->
+    <input type="file" id="iptAvatar" accept="image/jpeg,image/png,image/bmp,image/gif" />
+</body>
+
+</html>
