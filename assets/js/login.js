@@ -31,7 +31,8 @@ $(function() {
         var data = $(this).serialize();
         // console.log(data); //username=11&password=22 不可以重复哦
 
-        // 把账号和密码提交给接口，从而完成注册
+        - // 把账号和密码提交给接口，从而完成注册
+
         $.ajax({
             url: 'http://www.liulongbin.top:3007/api/reguser',
             type: 'POST',

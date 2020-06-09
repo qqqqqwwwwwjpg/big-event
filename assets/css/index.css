@@ -25,3 +25,8 @@
     display: none;
     /*这里先让文字头像隐藏*/
 }
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
