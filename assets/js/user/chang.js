@@ -69,7 +69,7 @@ $(function() {
             // ajax提交字符串给接口
             $.ajax({
                 type: 'POST',
-                url: 'http://www.liulongbin.top:3007/my/update/avatar',
+                url: '/my/update/avatar',
                 data: { avatar: str },
                 success: function(res) {
                     layer.msg(res.message);
@@ -77,20 +77,7 @@ $(function() {
                         // 更换成功，调用父页面的 getUserInfo() ，重新渲染头像
                         window.parent.getUserInfo();
                     }
-                },
-                headers: {
-                    'Authorization': localStorage.getItem('token')
-                },
-                complete: function(xhr) {
-                    // 这里判断身份认证是否成功
-                    // console.log(xhr);
-                    if (xhr.responseJSON.status === 1 && xhr.responseJSON.message === '身份认证失败！') {
-                        // 删除假token
-                        localStorage.removeItem('token');
-                        // 跳转到登录页面
-                        window.parent.location.href = '/login.html';
-                    }
-                },
+                }
 
             });
 

@@ -16,16 +16,7 @@ function getUserInfo() {
 
     // 1. 发送ajax请求，获取用户信息
     $.ajax({
-        url: 'http://www.liulongbin.top:3007/my/userinfo',
-        // type: 'GET',              get 请求 默认不写 从服务器获取数据
-        // dataType: 'json',
-        // data: '',                 不需要参数 自动访问表单
-
-        //  *** 一定要获取 请求头的 Authorization ：本地存储 token 属性 不然服务器不知道是谁
-        //  *** jQuery中ajax选项，有一个headers，通过他，可以设置请求头 (千万不要忘记！！！！！！！)
-        headers: {
-            'Authorization': localStorage.getItem('token')
-        },
+        url: '/my/userinfo',
         // 2. 设置表单各项（每个输入框）的value值。
         success: function(backData) {
             // 第一种写法 根据name 属性 找到对应input 修改服务器返回的数据
@@ -39,17 +30,6 @@ function getUserInfo() {
             form.val('abc', backData.data)
 
 
-        },
-        // *** 身份认证 一定不要忘记
-        complete: function(xhr) {
-            // 这里判断身份认证是否成功
-            // console.log(xhr);
-            if (xhr.responseJSON.status === 1 && xhr.responseJSON.message === '身份认证失败！') {
-                // 删除假token
-                localStorage.removeItem('token');
-                // 跳转到登录页面
-                window.parent.location.href = '/login.html';
-            }
         },
     });
 }
@@ -78,29 +58,14 @@ $(function() {
         var forms = $('form').serialize();
         // 4. 发送ajax请求，完成更新
         $.ajax({
-            url: 'http://www.liulongbin.top:3007/my/userinfo',
+            url: '/my/userinfo',
             type: 'POST',
-            // dataType:'json',
             data: forms,
-            //  *** 一定要获取 请求头的 Authorization ：本地存储 token 属性 不然服务器不知道是谁
-            headers: {
-                'Authorization': localStorage.getItem('token')
-            },
             success: function(backData) {
                 console.log(backData);
                 window.parent.getUserInfo();
             },
-            // *** 身份认证 一定不要忘记
-            complete: function(xhr) {
-                // 这里判断身份认证是否成功
-                // console.log(xhr);
-                if (xhr.responseJSON.status === 1 && xhr.responseJSON.message === '身份认证失败！') {
-                    // 删除假token
-                    localStorage.removeItem('token');
-                    // 跳转到登录页面
-                    window.parent.location.href = '/login.html';
-                }
-            },
+
         });
 
 

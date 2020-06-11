@@ -20,7 +20,7 @@ $(function() {
 
 function getUserInfo() {
     $.ajax({
-        url: 'http://www.liulongbin.top:3007/my/userinfo',
+        url: '/my/userinfo',
         // dataType: 'json',
         // data: '',
         success: function(backData) {
