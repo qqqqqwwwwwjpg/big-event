@@ -1,0 +1,12 @@
+/* body 变颜色 */
+
+body {
+    background-color: #f2f3f5;
+}
+
+
+/* 卡片面板间距 */
+
+.layui-card {
+    margin: 15px;
+}

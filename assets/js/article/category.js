@@ -24,15 +24,6 @@
 // 注意点：
 
 
-
-
-
-
-
-
-
-
-
 function renderCateggory() { // renderCateggory : 提交种类
 
     $.ajax({

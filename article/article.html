@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入 layui css -->
+    <link rel="stylesheet" href="/assets/lib/layui/css/layui.css">
+    <!-- 引入 自己的 css -->
+    <link rel="stylesheet" href="/assets/css/article/article.css">
+    <!-- 引入jq -->
+    <script src="/assets/lib/jquery.js"></script>
+    <!-- 引入 layui js -->
+    <script src="/assets/lib/layui/layui.all.js"></script>
+
+
+    <!-- 引入 模板ID -->
+    <script src="/assets/lib/template-web.js"></script>
+    <!--  引入 自己的 js-->
+    <script src="/assets/js/common.js"></script>
+    <!-- 引入 自己的 js -->
+    <script src="/assets/js/article/article.js"></script>
+</head>
+
+<body>
+    <!-- 卡片模板 -->
+    <div class="layui-card">
+        <div class="layui-card-header">文章列表</div>
+        <div class="layui-card-body">
+            <!-- 搜索区 -->
+            <form class="layui-form" id="formSearch">
+                <div class="layui-form-item">
+
+                    <div class="layui-inline">
+                        <div class="layui-input-inline" style="width: 200px;">
+                            <select name="city" lay-verify="">
+                                <option value="">所有分类</option>
+                                <option value="010">北京</option>
+                                <option value="021">上海</option>
+                                <option value="0571">杭州</option>
+                              </select>
+                        </div>
+                        <div class="layui-input-inline" style="width: 200px;">
+                            <select name="city" lay-verify="">
+                                <option value="">所有状态</option>
+                                <option value="已发布">已发布</option>
+                                <option value="草稿">草稿</option>
+                                
+                              </select>
+                        </div>
+                    </div>
+
+                    <div class="layui-inline">
+                        <div class="layui-input-inline" style="width: 80px;">
+                            <button class="layui-btn" lay-submit lay-filter="formDemo">筛选</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </form>
+            <!-- 表格内容区 -->
+            <table class="layui-table">
+                <colgroup>
+                    <col width="40%">
+                    <col width="15%">
+                    <col width="15%">
+                    <col width="15%">
+                    <col width="">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>文章标题</th>
+                        <th>分类</th>
+                        <th>发表时间</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <!-- 分页区 -->
+            <div id="page"></div>
+
+
+
+
+
+
+            <!-- 
+
+        <select name="cate_id">
+          <option value="">所有分类</option>
+          {{each data}}
+            <option value="{{$value.Id}}">{{$value.name}}</option>
+          {{/each}}
+        </select>
+       -->
+            <!--  所有分类 -->
+            <script type="text/html" id='cateTemp'>
+
+
+            </script>
+
+            <!-- 文章列表的模板 -->
+            <script type="text/html" id='tpl-article'>
+                {{each data v}}
+                <tr>
+                    <td>{{v.title}}</td>
+                    <td>{{v.cate_name}}</td>
+                    <td>{{v.pub_date}}</td>
+                    <td>{{v.state}}</td>
+                    <td>
+                        <button type="button" class="layui-btn layui-btn-xs btn_edit" data-id="1465">编辑</button>
+                        <button type="button" class="layui-btn layui-btn-danger layui-btn-xs btn_delete" data-id="1465">删除</button>
+                    </td>
+                </tr>
+                {{/each}}
+
+            </script>
+</body>
+
+</html>
