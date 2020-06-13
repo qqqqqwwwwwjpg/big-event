@@ -4,50 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- 引入 layui css -->
+    <title>文章列表123</title>
+    <!-- 加载所需的js和css -->
     <link rel="stylesheet" href="/assets/lib/layui/css/layui.css">
-    <!-- 引入 自己的 css -->
     <link rel="stylesheet" href="/assets/css/article/article.css">
-    <!-- 引入jq -->
+
     <script src="/assets/lib/jquery.js"></script>
-    <!-- 引入 layui js -->
     <script src="/assets/lib/layui/layui.all.js"></script>
-
-
-    <!-- 引入 模板ID -->
+    <!-- 加载模板引擎 -->
     <script src="/assets/lib/template-web.js"></script>
-    <!--  引入 自己的 js-->
     <script src="/assets/js/common.js"></script>
-    <!-- 引入 自己的 js -->
     <script src="/assets/js/article/article.js"></script>
 </head>
 
 <body>
-    <!-- 卡片模板 -->
     <div class="layui-card">
-        <div class="layui-card-header">文章列表123</div>
+        <div class="layui-card-header">文章列表456</div>
         <div class="layui-card-body">
-            <!-- 搜索区 -->
-            <form class="layui-form" id="formSearch">
+            <!-- 搜索区 start -->
+            <form id="search-form" class="layui-form" action="">
                 <div class="layui-form-item">
 
                     <div class="layui-inline">
                         <div class="layui-input-inline" style="width: 200px;">
-                            <select name="city" lay-verify="">
-                                <option value="">所有分类</option>
-                                <option value="010">北京</option>
-                                <option value="021">上海</option>
-                                <option value="0571">杭州</option>
-                              </select>
+                            <select id="category" name="cate_id" lay-verify="">
+                            
+                        </select>
                         </div>
                         <div class="layui-input-inline" style="width: 200px;">
-                            <select name="city" lay-verify="">
-                                <option value="">所有状态</option>
-                                <option value="已发布">已发布</option>
-                                <option value="草稿">草稿</option>
-                                
-                              </select>
+                            <select name="state" lay-verify="">
+                            <option value="">请选择状态</option>
+                            <option value="已发布">已发布</option>
+                            <option value="草稿">草稿</option>
+                          </select>
                         </div>
                     </div>
 
@@ -58,16 +47,17 @@
                     </div>
 
                 </div>
-
             </form>
-            <!-- 表格内容区 -->
+            <!-- 搜索区 end -->
+
+            <!-- 表格内容区 start -->
             <table class="layui-table">
                 <colgroup>
                     <col width="40%">
                     <col width="15%">
+                    <col width="20%">
                     <col width="15%">
-                    <col width="15%">
-                    <col width="">
+                    <col>
                 </colgroup>
                 <thead>
                     <tr>
@@ -79,50 +69,45 @@
                     </tr>
                 </thead>
                 <tbody>
-
+                    <!-- 这里放数据 -->
                 </tbody>
             </table>
-            <!-- 分页区 -->
+            <!-- 表格内容区 end -->
+
+            <!-- 分页区 start -->
             <div id="page"></div>
+            <!-- 分页区 end -->
+        </div>
+    </div>
 
 
+    <!-- 文章列表的模板 start -->
+    <script type="text/html" id="tpl-article">
+        {{each data val}}
+        <tr>
+            <td>{{val.title}}</td>
+            <td>{{val.cate_name}}</td>
+            <td>{{val.pub_date}}</td>
+            <td>{{val.state}}</td>
+            <td>
+                <a href="/article/edit.html?id={{val.Id}}" target="fm" class="layui-btn layui-btn-xs">编辑</a>
+                <button type="button" class="layui-btn layui-btn-xs layui-btn-danger">删除</button>
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+    <!-- 文章列表的模板 end -->
 
 
+    <!-- 下拉框分类的模板 start -->
+    <script type="text/html" id="tpl-category">
+        <option value="">请选择分类</option>
+        {{each data val}}
+        <option value="{{val.Id}}">{{val.name}}</option>
+        {{/each}}
+    </script>
+    <!-- 下拉框分类的模板 end -->
 
-
-            <!-- 
-
-        <select name="cate_id">
-          <option value="">所有分类</option>
-          {{each data}}
-            <option value="{{$value.Id}}">{{$value.name}}</option>
-          {{/each}}
-        </select>
-       -->
-            <!--  所有分类 -->
-            <script type="text/html" id='cateTemp'>
-
-
-            </script>
-
-            <!-- 文章列表的模板 -->
-            <script type="text/html" id='tpl-article'>
-                {{each data v}}
-                <tr>
-                    <td>{{v.title}}</td>
-                    <td>{{v.cate_name}}</td>
-                    <td>{{v.pub_date}}</td>
-                    <td>{{v.state}}</td>
-                    <td>
-                        <!-- 在链接中挂一个参数 用？ 挂 Id 是 大写的 I  一个单纯的带参数的超链接跳转-->
-                        <!-- 可以通过id 确定是哪篇文章 -->
-                        <a href="/article/edit.html?id={{v.Id}}" class="layui-btn layui-btn-xs">编辑</a>
-                        <button type="button" class="layui-btn layui-btn-danger layui-btn-xs btn_delete" data-id="1465">删除</button>
-                    </td>
-                </tr>
-                {{/each}}
-
-            </script>
 </body>
 
 </html>
