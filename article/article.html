@@ -26,7 +26,7 @@
 <body>
     <!-- 卡片模板 -->
     <div class="layui-card">
-        <div class="layui-card-header">文章列表</div>
+        <div class="layui-card-header">文章列表123</div>
         <div class="layui-card-body">
             <!-- 搜索区 -->
             <form class="layui-form" id="formSearch">
@@ -114,7 +114,9 @@
                     <td>{{v.pub_date}}</td>
                     <td>{{v.state}}</td>
                     <td>
-                        <button type="button" class="layui-btn layui-btn-xs btn_edit" data-id="1465">编辑</button>
+                        <!-- 在链接中挂一个参数 用？ 挂 Id 是 大写的 I  一个单纯的带参数的超链接跳转-->
+                        <!-- 可以通过id 确定是哪篇文章 -->
+                        <a href="/article/edit.html?id={{v.Id}}" class="layui-btn layui-btn-xs">编辑</a>
                         <button type="button" class="layui-btn layui-btn-danger layui-btn-xs btn_delete" data-id="1465">删除</button>
                     </td>
                 </tr>
