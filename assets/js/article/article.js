@@ -73,24 +73,40 @@ $(function() {
 
     // ------------------ 搜索区 -----------------------------------
     $('#search-form').on('submit', function(e) {
+            e.preventDefault();
+            var p = $(this).serializeArray();
+            console.log(p);
+            // 判断是否选择了分类
+            if (p[0].value) {
+                data.cate_id = p[0].value;
+            } else {
+                delete data.cate_id; // delete 可以删除对象的属性
+            }
+            // 判断是否选择了状态
+            if (p[1].value) {
+                data.state = p[1].value;
+            } else {
+                delete data.state;
+            }
+            // 搜索之后，肯定要看第1页的数据
+            data.pagenum = 1;
+            // 调用renderArticle，重新获取数据
+            renderArticle();
+        })
+        // ------------------------------------------ 删除
+
+    $('body').on('click', '.delete', function(e) {
+        // console.log($(this).val());
         e.preventDefault();
-        var p = $(this).serializeArray();
-        console.log(p);
-        // 判断是否选择了分类
-        if (p[0].value) {
-            data.cate_id = p[0].value;
-        } else {
-            delete data.cate_id; // delete 可以删除对象的属性
-        }
-        // 判断是否选择了状态
-        if (p[1].value) {
-            data.state = p[1].value;
-        } else {
-            delete data.state;
-        }
-        // 搜索之后，肯定要看第1页的数据
-        data.pagenum = 1;
-        // 调用renderArticle，重新获取数据
-        renderArticle();
+        $.ajax({
+            url: '/my/article/delete/' + $(this).val(),
+            success: function(backData) {
+                layer.msg(backData.message);
+                if (backData.status === 0) {
+                    // 删除成功  重新渲染页面
+                    renderArticle();
+                }
+            }
+        });
     })
 });

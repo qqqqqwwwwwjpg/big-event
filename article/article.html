@@ -53,10 +53,10 @@
             <!-- 表格内容区 start -->
             <table class="layui-table">
                 <colgroup>
-                    <col width="40%">
-                    <col width="15%">
+                    <col width="30%">
                     <col width="20%">
-                    <col width="15%">
+                    <col width="20%">
+                    <col width="20%">
                     <col>
                 </colgroup>
                 <thead>
@@ -91,7 +91,7 @@
             <td>{{val.state}}</td>
             <td>
                 <a href="/article/edit.html?id={{val.Id}}" target="fm" class="layui-btn layui-btn-xs">编辑</a>
-                <button type="button" class="layui-btn layui-btn-xs layui-btn-danger">删除</button>
+                <button type="button" class="layui-btn layui-btn-xs layui-btn-danger delete" value='{{val.Id}}'>删除</button>
             </td>
         </tr>
         {{/each}}
@@ -103,7 +103,7 @@
     <script type="text/html" id="tpl-category">
         <option value="">请选择分类</option>
         {{each data val}}
-        <option value="{{val.Id}}">{{val.name}}</option>
+        <option value="{{val.Id}}" id='id'>{{val.name}}</option>
         {{/each}}
     </script>
     <!-- 下拉框分类的模板 end -->
